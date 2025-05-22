@@ -1,0 +1,123 @@
+.projects{
+    margin: 50px 120px;
+    padding-bottom: 50px;
+}
+
+.projectstitle{
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    background-clip: border-box;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+    font-size: 1.5rem;
+    align-self: flex-start;  
+}  
+
+.projectscontainer {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin: 50px 30px;
+}
+  
+.projectcard {
+    width: 350px;
+    background-color: var(--card-bg);
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+  
+.projectcard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(216, 63, 135, 0.15);
+}
+  
+.projectcard img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+  
+.projectcard:hover img {
+    transform: scale(1.05);
+}
+  
+.projectdesc {
+    padding: 20px;
+    color: var(--text);
+    font-size: 0.9rem;
+}
+  
+.projectdesc h3 {
+    color: var(--text);
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    background-clip: border-box;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+  
+.projectdesc p {
+    color: var(--text);
+    opacity: 0.8;
+    line-height: 1.5;
+}
+
+.projectlinks {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.projectlinks a {
+    padding: 8px 16px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.projectlinks .demo {
+    background: linear-gradient(to right, var(--primary), var(--secondary));
+    color: white;
+}
+
+.projectlinks .code {
+    border: 1px solid var(--primary);
+    color: var(--primary);
+}
+
+.projectlinks a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px var(--primary-color);
+}
+
+.linebreak {
+    margin: -50px 100px 20px 100px;
+}
+
+.linebreak hr {
+    border: none;
+    height: 1px;
+    background-color: var(--border);
+    margin: 40px 0;
+}
+
+@media screen and (max-width: 768px) {
+    .projects {
+        margin: 30px 20px;
+    }
+
+    .projectcard {
+        width: 100%;
+    }
+}

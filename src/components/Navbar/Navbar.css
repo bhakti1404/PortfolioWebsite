@@ -1,0 +1,101 @@
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 30px;
+    background-color: var(--card-bg);
+    border-radius: 100px;
+    margin: 5px auto;
+    max-width: 900px;
+    border: 1px solid var(--border);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.leftnav {
+    font-size: 1.2rem;
+    font-weight: bolder;
+}
+
+.logo {
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    background-clip: border-box;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+.rightnav ul li {
+    list-style: none;
+    cursor: pointer;
+    position: relative;
+}
+
+.rightnav ul li a {
+    color: var(--text);
+    text-decoration: none;
+    font-size: 0.9rem;
+    padding: 5px 0;
+    position: relative;
+}
+
+.rightnav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(to right, var(--primary), var(--secondary));
+    transition: width 0.3s ease;
+}
+
+.rightnav ul li a:hover::after,
+.rightnav ul li a.active::after {
+    width: 100%;
+}
+
+.rightnav ul {
+    display: flex;
+    padding: 15px;
+    gap: 25px;
+    margin: 0;
+}
+
+.connect {
+    background: linear-gradient(to right, var(--primary), var(--secondary));
+    padding: 8px 16px;
+    font-size: 0.8rem;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-right: -50px;
+    color: var(--text);
+}
+
+.connect:hover {
+    transform: scale(1.05);
+}
+
+.github {
+    background: linear-gradient(to right, var(--primary), var(--secondary));
+    padding: 8px 16px;
+    font-size: 0.8rem;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: 0.3s;
+    color: var(--text);
+    text-decoration: none;
+}
+
+.github:hover {
+    transform: scale(1.05);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}

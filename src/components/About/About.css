@@ -1,0 +1,101 @@
+.about{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap :80px;
+    margin: 50px 120px;
+    padding-bottom: 50px;
+}
+
+.abouttitle{
+    background: linear-gradient( var(--primary)); /* Example colors */
+    background-clip: border-box;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+    font-size: 1.5rem;
+    align-self: flex-start;  
+}
+.aboutpara p{
+    font-size: 2rem;
+}
+.aboutsections{
+    display: flex;
+    justify-content: space-between;
+    gap: 80px;
+}
+.aboutleft img{
+    height:250px;
+    border-radius: 900px;
+}
+.aboutskillsfirst img{
+    height: 50px;
+}
+.aboutskillssecond img{
+    height: 50px;
+}
+.aboutskillsfirst{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 20px 20px 20px;
+    gap: 25px;
+}
+.aboutskillssecond{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 20px 20px 20px;
+    gap: 25px;
+}
+.aboutskills{
+    margin-top: 40px;
+}
+
+@keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-6px);
+    }
+}
+
+.aboutskillsfirst img {
+    animation: float 3s ease-in-out infinite;
+}
+.aboutskillssecond img {
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes wiggle {
+    0%, 100% {
+      transform: rotate(0deg);
+    }
+    25% {
+      transform: rotate(3deg);
+    }
+    75% {
+      transform: rotate(-3deg);
+    }
+}
+
+.aboutskillsfirst img:hover {
+    animation: wiggle 0.5s ease-in-out;
+}
+.aboutskillssecond img:hover {
+    animation: wiggle 0.5s ease-in-out;
+}
+
+.linebreak{
+    margin: -50px 100px 20px 100px;
+}
+
+.linebreak hr {
+    border: none;
+    height: 1px;
+    background-color: gray;
+    margin: 40px 0;
+}
+  

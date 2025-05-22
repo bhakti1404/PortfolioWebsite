@@ -1,0 +1,93 @@
+.hero {
+    display: flex;
+    justify-content: space-around;
+    margin: 23px 0px;
+   
+}
+
+.hero > div {
+    width: 30%;
+}
+
+.leftsection {
+    font-size: 2rem;
+    width: 50%;
+    margin: 260px 0px 0px 70px;
+
+}
+
+.rightsection img{
+    height:600px;
+    margin: -30px;
+}
+
+.bhaktiText {
+    background:var(--primary); /* Example colors */
+    background-clip: border-box;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+    font-size: 2rem;
+  }
+  .developertext {
+    background: var(--primary); /* Example colors */
+    background-clip: border-box;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+    font-size: 2rem;
+  }
+  .actionbuttons{
+    display: flex;
+    gap: 25px;
+    font-size: 24px;
+    margin-top: 20px;
+  }
+  .connectwithme{
+    background: linear-gradient(to right, var(--primary),var(--secondary));
+    padding: 10px 20px;
+    font-size: small;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: 0.5s;
+  }
+  .connectwithme:hover {
+    transform: scale(1.1);
+}
+.myresume {
+  border-width: 9px;
+  border-radius: 100px;
+  font-size: small;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: 0.5s;
+  text-decoration: none;
+  display: inline-block;
+  background: linear-gradient(90deg,  var(--primary), var(--secondary));
+  
+}
+
+/* Remove underline and inherit styles for anchor */
+a .myresume {
+  text-decoration: none;
+  
+}
+
+.myresume:hover {
+    transform: scale(1.1);
+}
+  
+.linebreak{
+  margin: -50px 100px 20px 100px ;
+  
+}
+
+  .linebreak hr {
+      border: none;
+      height: 1px;
+      background-color: gray;
+      margin: 40px 0; /* optional spacing */
+    }
+    
+  
+  

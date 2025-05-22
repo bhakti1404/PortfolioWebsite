@@ -1,0 +1,125 @@
+:root {
+  /* Main Primary Color */
+  --primary-color: #3F8EFC;
+
+  /* Light theme variables */
+  --background-light: #F7FAFC;
+  --text-light: #1A202C;
+  --primary-light: var(--primary-color);
+  --secondary-light: #A0B9D6;
+  --card-bg-light: #FFFFFF;
+  --border-light: #E2E8F0;
+
+  /* Dark theme variables */
+  --background-dark: #0D1117;
+  --text-dark: #C9D1D9;
+  --primary-dark: var(--primary-color);
+  --secondary-dark: #4A6A95;
+  --card-bg-dark: #161B22;
+  --border-dark: #30363D;
+
+  /* Default (Light Theme) */
+  --background: var(--background-light);
+  --text: var(--text-light);
+  --primary: var(--primary-light);
+  --secondary: var(--secondary-light);
+  --card-bg: var(--card-bg-light);
+  --border: var(--border-light);
+}
+
+[data-theme="dark"] {
+  --background: var(--background-dark);
+  --text: var(--text-dark);
+  --primary: var(--primary-dark);
+  --secondary: var(--secondary-dark);
+  --card-bg: var(--card-bg-dark);
+  --border: var(--border-dark);
+}
+
+/* Animation Keyframes */
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Animation Classes */
+.animate-left {
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: all 1s ease-out;
+}
+
+.animate-right {
+  opacity: 0;
+  transform: translateX(100%);
+  transition: all 1s ease-out;
+}
+
+.animate-left.visible,
+.animate-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--background);
+  color: var(--text);
+  font-family: 'Poppins', sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Optional: Standard Card Styling */
+.card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 4px 8px rgba(216, 63, 135, 0.1);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Optional: Button Styling */
+button {
+  background-color: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 16px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #b82f6e;
+}
+
+/* Optional: Link Styling */
+a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  text-decoration: underline;
+}

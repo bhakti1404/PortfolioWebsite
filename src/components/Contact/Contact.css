@@ -1,0 +1,160 @@
+.contact {
+    margin: 50px 120px;
+    padding-bottom: 50px;
+}
+
+.contacttitle {
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    background-clip: border-box;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+    font-size: 1.5rem;
+    align-self: flex-start;
+    margin-bottom: 20px;
+}
+
+.contactcontainer {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 60px;
+    margin: 50px 30px;
+}
+
+.contactleft {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    width: 100%;
+    max-width: 500px;
+}
+
+.contactinfo {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    transition: all 0.3s ease;
+}
+
+.contactinfo:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.contactinfo p {
+    font-size: 1rem;
+    color: var(--text);
+    margin: 0;
+}
+
+.Icon {
+    font-size: 1.8rem;
+    color: var(--primary);
+    transition: all 0.3s ease;
+    padding: 8px;
+    border-radius: 50%;
+    background-color: var(--card-bg);
+}
+
+.Icon:hover {
+    transform: scale(1.1);
+    color: var(--secondary);
+    background-color: rgba(63, 142, 252, 0.1);
+}
+
+.contactright {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 25px;
+    gap: 20px;
+    width: 100%;
+    max-width: 500px;
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+}
+
+.contactright label {
+    font-size: 0.95rem;
+    color: var(--text);
+    font-weight: 500;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.contactright textarea,
+.contactright input {
+    width: 100%;
+    padding: 12px 16px;
+    font-size: 0.95rem;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    resize: none;
+    outline: none;
+    background-color: var(--card-bg);
+    color: var(--text);
+    transition: all 0.3s ease;
+}
+
+.contactright textarea:focus,
+.contactright input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 2px rgba(63, 142, 252, 0.1);
+}
+
+.contactsubmit {
+    background: linear-gradient(to right, var(--primary), var(--secondary));
+    padding: 12px 28px;
+    font-size: 0.95rem;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: white;
+    font-weight: 500;
+    margin-top: 10px;
+}
+
+.contactsubmit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(63, 142, 252, 0.2);
+}
+
+.linebreak {
+    margin: -50px 100px 20px 100px;
+}
+
+.linebreak hr {
+    border: none;
+    height: 1px;
+    background-color: var(--border);
+    margin: 40px 0;
+}
+
+@media screen and (max-width: 768px) {
+    .contact {
+        margin: 30px 20px;
+    }
+    
+    .contactcontainer {
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+    }
+    
+    .contactleft,
+    .contactright {
+        width: 100%;
+    }
+    
+    .contactinfo {
+        padding: 15px;
+    }
+}

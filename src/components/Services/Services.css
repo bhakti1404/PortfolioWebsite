@@ -1,0 +1,113 @@
+.services {
+    margin: 50px 120px;
+    padding-bottom: 50px;
+}
+
+.servicestitle {
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    background-clip: border-box;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+    font-size: 1.5rem;
+    align-self: flex-start;
+    margin-bottom: 20px;
+}
+
+.servicescontainer {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin: 50px 30px;
+}
+
+.servicecard {
+    width: 300px;
+    background-color: var(--card-bg);
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.servicecard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(63, 142, 252, 0.15);
+}
+
+.serviceicon {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: var(--primary);
+    transition: all 0.3s ease;
+    padding: 15px;
+    border-radius: 50%;
+    background-color: rgba(63, 142, 252, 0.1);
+}
+
+.servicecard:hover .serviceicon {
+    transform: scale(1.1);
+    background-color: rgba(63, 142, 252, 0.15);
+}
+
+.servicedesc {
+    padding: 0;
+    color: var(--text);
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.servicedesc h3 {
+    color: var(--text);
+    margin-bottom: 12px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    background-clip: border-box;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.servicedesc p {
+    color: var(--text);
+    opacity: 0.85;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.linebreak {
+    margin: -50px 100px 20px 100px;
+}
+
+.linebreak hr {
+    border: none;
+    height: 1px;
+    background-color: var(--border);
+    margin: 40px 0;
+}
+
+@media screen and (max-width: 768px) {
+    .services {
+        margin: 30px 20px;
+    }
+    
+    .servicecard {
+        width: 100%;
+        padding: 20px;
+    }
+    
+    .servicescontainer {
+        gap: 20px;
+        margin: 30px 15px;
+    }
+}
+  
