@@ -1,15 +1,14 @@
-import React from 'react'
+import { PROFILE } from '../../data/site'
 import './Footer.css'
 
 function Footer() {
-    return (
-        <div>
-            <footer className="footer">
-                <p>© 2025 Bhakti Gangurde. All rights reserved.</p>
-            </footer>
-
-        </div>
-    )
+  return (
+    <footer className="footer">
+      <p>
+        &copy; {new Date().getFullYear()} {PROFILE.name}. All rights reserved.
+      </p>
+    </footer>
+  )
 }
 
 export default Footer

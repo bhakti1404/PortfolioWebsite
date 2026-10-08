@@ -1,55 +1,72 @@
-import React from 'react'
-import Typed from 'typed.js';
+import { useEffect, useRef } from 'react'
+import { motion } from 'framer-motion'
+import Typed from 'typed.js'
+import HeroVisual from '../HeroVisual/HeroVisual'
+import { PROFILE } from '../../data/site'
+import { fadeUp, staggerContainer } from '../../utils/motion'
 import './Hero.css'
-import developerImg from '../../assets/developer.png'
-import { Link } from 'react-scroll';
-
 
 function Hero() {
-    const el = React.useRef(null);
+  const typedRef = useRef(null)
 
-    React.useEffect(() => {
-        const typed = new Typed(el.current, {
-            strings: ['Web Developer', 'App Developer', 'Metaverse Developer'],
-            typeSpeed: 50,
-        });
+  useEffect(() => {
+    const typed = new Typed(typedRef.current, {
+      strings: PROFILE.roles,
+      typeSpeed: 50,
+      backSpeed: 30,
+      backDelay: 1400,
+      loop: true,
+    })
 
-        return () => {
-            // Destroy Typed instance during cleanup to stop animation
-            typed.destroy();
-        };
-    }, []);
-    return (
-        <section id='Home'>
-            <div className='hero'>
-                <div className="leftsection">
-                    Hi, I'm <span className='bhaktiText'>Bhakti</span>,
-                    <div>
-                        and i am Passionate
-                    </div>
-                    <span className='developertext' ref={el}></span>
-                    <div className="actionbuttons">
+    return () => typed.destroy()
+  }, [])
 
-                        <Link to="Contact" smooth={true} duration={900} className="connectwithme">
-                            Connect With Me
-                        </Link>
+  return (
+    <section id="home" className="hero section">
+      <span className="hero__blob hero__blob--one" aria-hidden="true" />
+      <span className="hero__blob hero__blob--two" aria-hidden="true" />
 
-                        <a href="/Bhakti_Resume.pdf" target="_blank" rel="noopener noreferrer">
-                            <div className="myresume">My Resume</div>
-                        </a>
+      <motion.div
+        className="hero__content"
+        variants={staggerContainer}
+        initial="hidden"
+        animate="visible"
+      >
+        <motion.p className="hero__greeting" variants={fadeUp}>
+          Hello, welcome to my portfolio
+        </motion.p>
+        <motion.h1 className="hero__title" variants={fadeUp}>
+          Hi, I&apos;m <span className="gradient-text">{PROFILE.firstName}</span>
+        </motion.h1>
+        <motion.p className="hero__role" variants={fadeUp}>
+          a passionate <span className="hero__typed gradient-text" ref={typedRef} />
+        </motion.p>
+        <motion.p className="hero__summary" variants={fadeUp}>
+          I design and build websites, mobile apps and immersive metaverse experiences
+          that are fast, responsive and easy to use.
+        </motion.p>
+        <motion.div className="hero__actions" variants={fadeUp}>
+          <a href="#contact" className="btn btn--primary">
+            Connect With Me
+          </a>
+          <a
+            href={PROFILE.resumeUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn--outline"
+          >
+            My Resume
+          </a>
+        </motion.div>
+      </motion.div>
 
-                    </div>
-                </div>
-                <div className="rightsection">
-                    <img src={developerImg} alt="Developer Image" />
-                </div>
+      <HeroVisual />
 
-            </div>
-            <div className="linebreak">
-                <hr />
-            </div>
-        </section>
-    )
+      <a href="#services" className="hero__scroll" aria-label="Scroll to services">
+        <span className="hero__scroll-dot" />
+      </a>
+    </section>
+  )
 }
 
 export default Hero

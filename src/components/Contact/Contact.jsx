@@ -1,94 +1,136 @@
-import React from 'react'
+import { useState } from 'react'
+import { motion } from 'framer-motion'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import SectionHeading from '../SectionHeading/SectionHeading'
+import {
+  CONTACT_DETAILS,
+  SOCIAL_LINKS,
+  WEB3FORMS_ACCESS_KEY,
+  WEB3FORMS_ENDPOINT,
+} from '../../data/site'
+import { VIEWPORT, slideInLeft, slideInRight } from '../../utils/motion'
 import './Contact.css'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEnvelope, faPhone, faLocationDot } from '@fortawesome/free-solid-svg-icons';
-import { faGithub, faLinkedin, faInstagram, faFacebook, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 
-
-
+const STATUS_MESSAGES = {
+  success: 'Thank you! Your message has been sent.',
+  error: 'Something went wrong. Please try again or email me directly.',
+}
 
 function Contact() {
-    const onSubmit = async (event) => {
-        event.preventDefault();
-        const formData = new FormData(event.target);
+  const [status, setStatus] = useState('idle')
+  const isSending = status === 'sending'
 
-        formData.append("access_key", "4bfc164a-53dd-4d8d-a19f-9bba44134388");
+  const handleSubmit = async (event) => {
+    event.preventDefault()
+    const form = event.currentTarget
+    const payload = { ...Object.fromEntries(new FormData(form)), access_key: WEB3FORMS_ACCESS_KEY }
 
-        const object = Object.fromEntries(formData);
-        const json = JSON.stringify(object);
+    setStatus('sending')
+    try {
+      const response = await fetch(WEB3FORMS_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(payload),
+      })
+      const result = await response.json()
+      if (!result.success) throw new Error(result.message)
+      form.reset()
+      setStatus('success')
+    } catch {
+      setStatus('error')
+    }
+  }
 
-        const res = await fetch("https://api.web3forms.com/submit", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                Accept: "application/json"
-            },
-            body: json
-        }).then((res) => res.json());
+  return (
+    <section id="contact" className="contact section">
+      <SectionHeading
+        eyebrow="Say hello"
+        title="Get In Touch"
+        subtitle="I'm currently available to take on new projects, so feel free to send me a message about anything you want me to work on."
+      />
+      <div className="contact__grid">
+        <motion.div
+          className="contact__info"
+          variants={slideInLeft}
+          initial="hidden"
+          whileInView="visible"
+          viewport={VIEWPORT}
+        >
+          <h3 className="contact__heading">Let&apos;s Talk</h3>
+          <ul className="contact__details">
+            {CONTACT_DETAILS.map((detail) => (
+              <li key={detail.id} className="contact__detail card">
+                <span className="contact__detail-icon">
+                  <FontAwesomeIcon icon={detail.icon} />
+                </span>
+                {detail.href ? <a href={detail.href}>{detail.label}</a> : <span>{detail.label}</span>}
+              </li>
+            ))}
+          </ul>
+          <ul className="contact__socials">
+            {SOCIAL_LINKS.map((social) => {
+              // Web links open in a new tab; tel: and mailto: hand over to the phone or mail app.
+              const isWebLink = social.href.startsWith('http')
 
-        if (res.success) {
-            console.log("Success", res);
-        }
-        if (res.success) {
-            console.log("Success", res);
-            event.target.reset(); // Clear form
-            alert("Thank you! Your message has been sent.");
-          }
-          
-    };
-    return (
-        <section id='Contact'>
-            <div className="contact">
-                <div className="contacttitle">
-                    <h1>Get In Touch</h1>
-                </div>
-                <div className="contactcontainer">
-                    <div className="contactleft">
-                        <p>Let's Talk</p>
-                        <p>I'm currently avaliable to take on new projects, so feel free to send me a message about anything that you want me to work on. You can contact anytime.</p>
-                        <div className="contactemail">
-                            <FontAwesomeIcon icon={faEnvelope} />
-                            <p>bhakti1404@gmail.com</p>
-                        </div>
-                        <div className="contactphone">
-                            <FontAwesomeIcon icon={faPhone} />
-                            <p>7058528767</p>
-                        </div>
-                        <div className="contactlocation">
-                            <FontAwesomeIcon icon={faLocationDot} />
-                            <p>Nashik, Maharshtra, India</p>
-                        </div>
-                        <div className="contactsocialmedia">
-                            <p>Social Media</p>
-                            <div className="contactsocialicon">
-                                <FontAwesomeIcon className='Icon' icon={faGithub} />
-                                <FontAwesomeIcon className='Icon' icon={faLinkedin} />
-                                <FontAwesomeIcon className='Icon' icon={faInstagram} />
-                                <FontAwesomeIcon className='Icon' icon={faFacebook} />
-                                <FontAwesomeIcon className='Icon' icon={faWhatsapp} />
-                            </div>
-                        </div>
-                    </div>
-                    <form onSubmit={onSubmit} className="contactright">
-                        <label htmlFor="name">Name:</label>
-                        <input id="name" name="name" type="text" placeholder="Name" required />
+              return (
+                <li key={social.id}>
+                  <a
+                    className="contact__social"
+                    href={social.href}
+                    target={isWebLink ? '_blank' : undefined}
+                    rel={isWebLink ? 'noopener noreferrer' : undefined}
+                    aria-label={social.label}
+                    title={social.label}
+                  >
+                    <FontAwesomeIcon icon={social.icon} />
+                  </a>
+                </li>
+              )
+            })}
+          </ul>
+        </motion.div>
 
-                        <label htmlFor="email">Email:</label>
-                        <input id="email" name="email" type="email" placeholder="Email" required />
+        <motion.form
+          className="contact__form card"
+          onSubmit={handleSubmit}
+          variants={slideInRight}
+          initial="hidden"
+          whileInView="visible"
+          viewport={VIEWPORT}
+        >
+          <label className="contact__label" htmlFor="name">
+            Name
+          </label>
+          <input className="contact__input" id="name" name="name" type="text" placeholder="Your name" required />
 
-                        <label htmlFor="message">Send me a message:</label>
-                        <textarea id="message" name="message" rows="4" placeholder="Type your message here..." required></textarea>
+          <label className="contact__label" htmlFor="email">
+            Email
+          </label>
+          <input className="contact__input" id="email" name="email" type="email" placeholder="you@example.com" required />
 
-                        <button type='submit' className='contactsubmit'>Submit Now</button>
-                    </form>
+          <label className="contact__label" htmlFor="message">
+            Message
+          </label>
+          <textarea
+            className="contact__input contact__input--area"
+            id="message"
+            name="message"
+            rows="5"
+            placeholder="Type your message here..."
+            required
+          />
 
-                </div>
-            </div>
-            <div className="linebreak">
-                <hr />
-            </div>
-        </section>
-    )
+          <button type="submit" className="btn btn--primary contact__submit" disabled={isSending}>
+            {isSending ? 'Sending...' : 'Send Message'}
+          </button>
+
+          <p className={`contact__status contact__status--${status}`} role="status">
+            {STATUS_MESSAGES[status]}
+          </p>
+        </motion.form>
+      </div>
+    </section>
+  )
 }
 
 export default Contact

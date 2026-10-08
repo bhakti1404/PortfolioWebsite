@@ -1,8 +1,8 @@
 .footer {
-    background-color: var(--card-bg-dark);
-    color: #ffffff;
-    text-align: center;
-    padding: 15px 0;
-    font-size: 14px;
-  }
-      
+  padding: 22px 16px;
+  border-top: 1px solid var(--border);
+  background-color: var(--surface);
+  color: var(--muted);
+  font-size: 0.85rem;
+  text-align: center;
+}
