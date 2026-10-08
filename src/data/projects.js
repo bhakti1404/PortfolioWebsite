@@ -1,9 +1,9 @@
 import samarthElectronics from '../assets/projects/samarth-electronics.webp'
-// SmartBiz projects are temporarily hidden; uncomment these and their entries below to restore.
+// SmartBiz and Akhanda projects are temporarily hidden; uncomment these and their entries below to restore.
 // import smartbizRetail from '../assets/projects/smartbiz-retail.webp'
 // import smartbizDesk from '../assets/projects/smartbiz-desk.webp'
+// import akhandaIt from '../assets/projects/akhanda-it.webp'
 import quotemaker from '../assets/projects/quotemaker.webp'
-import akhandaIt from '../assets/projects/akhanda-it.webp'
 import razzleHotels from '../assets/projects/razzle-hotels.webp'
 import razzleMenu from '../assets/projects/razzle-menu.webp'
 
@@ -26,15 +26,15 @@ const PROJECTS = [
   //   tags: ['React', 'Vite'],
   //   liveUrl: 'https://smartbiz-demo-akhanda.netlify.app',
   // },
-  {
-    id: 'akhanda-it',
-    title: 'Akhanda IT Solutions',
-    image: akhandaIt,
-    description:
-      'Company website for an IT firm in Nashik offering app and web development, software solutions, digital marketing and metaverse services.',
-    tags: ['HTML', 'Bootstrap', 'JavaScript'],
-    liveUrl: 'https://serene-palmier-89c42c.netlify.app',
-  },
+  // {
+  //   id: 'akhanda-it',
+  //   title: 'Akhanda IT Solutions',
+  //   image: akhandaIt,
+  //   description:
+  //     'Company website for an IT firm in Nashik offering app and web development, software solutions, digital marketing and metaverse services.',
+  //   tags: ['HTML', 'Bootstrap', 'JavaScript'],
+  //   liveUrl: 'https://serene-palmier-89c42c.netlify.app',
+  // },
   // {
   //   id: 'smartbiz-desk',
   //   title: 'SmartBiz Desk',

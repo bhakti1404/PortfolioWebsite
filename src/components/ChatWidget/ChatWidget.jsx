@@ -15,6 +15,7 @@ import './ChatWidget.css'
 
 function ChatWidget() {
   const [isOpen, setIsOpen] = useState(false)
+  const [hasOpened, setHasOpened] = useState(false)
   const [messages, setMessages] = useState([])
   const [input, setInput] = useState('')
   const [status, setStatus] = useState('idle')
@@ -67,6 +68,12 @@ function ChatWidget() {
   const handleSubmit = (event) => {
     event.preventDefault()
     sendMessage(input)
+  }
+
+  // The attention animation stops for good once the visitor has opened the chat.
+  const handleToggle = () => {
+    setHasOpened(true)
+    setIsOpen((isCurrentlyOpen) => !isCurrentlyOpen)
   }
 
   const handleKeyDown = (event) => {
@@ -165,13 +172,15 @@ function ChatWidget() {
 
       <button
         type="button"
-        className="chat-widget__toggle"
-        onClick={() => setIsOpen((isCurrentlyOpen) => !isCurrentlyOpen)}
+        className={`chat-widget__toggle${hasOpened ? '' : ' chat-widget__toggle--attention'}`}
+        onClick={handleToggle}
         aria-label={isOpen ? 'Close chat' : 'Open chat with the AI assistant'}
         aria-expanded={isOpen}
         aria-controls="chat-widget-panel"
       >
-        <FontAwesomeIcon icon={isOpen ? faXmark : faCommentDots} />
+        <span className="chat-widget__toggle-icon">
+          <FontAwesomeIcon icon={isOpen ? faXmark : faCommentDots} />
+        </span>
       </button>
     </div>
   )

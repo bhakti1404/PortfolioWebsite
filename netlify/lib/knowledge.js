@@ -1,7 +1,8 @@
 // Everything the chat assistant knows about Bhakti. It is sent to the model with every
 // question, so keep it factual and update it whenever src/data or the resume changes.
 //
-// SmartBiz projects are temporarily hidden; to restore, put these lines back under LIVE PROJECTS:
+// SmartBiz and Akhanda projects are temporarily hidden; to restore, put these lines back under LIVE PROJECTS:
+// - Akhanda IT Solutions: company website for an IT firm in Nashik offering app and web development, software solutions, digital marketing and metaverse services. Built with HTML, Bootstrap and JavaScript. Live: https://serene-palmier-89c42c.netlify.app
 // - SmartBiz Retail & Wholesale: retail and wholesale management demo covering POS billing, inventory, customers, schemes, purchases and payments, with role-based demo accounts. Built with React and Vite. Live: https://smartbiz-demo-akhanda.netlify.app
 // - SmartBiz Desk: cross-platform SmartBiz app with email sign-in and role-based accounts for admins and team members. Built with Expo and React Native Web. Live: https://smartbiz-desk.netlify.app
 export const KNOWLEDGE = `
@@ -29,7 +30,6 @@ SKILLS
 
 LIVE PROJECTS (shown on the portfolio)
 - Samarth Electronics: business website for a Nashik CCTV and weighing-scale dealer, with a language switch, light and dark themes, and one-tap call and WhatsApp buttons. Built with Expo and React Native Web. Live: https://samarth-electronics.netlify.app
-- Akhanda IT Solutions: company website for an IT firm in Nashik offering app and web development, software solutions, digital marketing and metaverse services. Built with HTML, Bootstrap and JavaScript. Live: https://serene-palmier-89c42c.netlify.app
 - Razzle Hotels: landing experience for Razzle Hotels & Banquet presenting its restaurants, party halls, suite villas and lawns. Built with React. Live: https://papaya-sopapillas-3e3fa7.netlify.app
 - QuoteMaker: quotation app for small businesses, where a business signs in and prepares quotes, backed by a hosted API. Built with Expo and a REST API. Live: https://quotemaker-app-26597a76.netlify.app
 - Razzle Menu: digital restaurant menu opened from a QR code, with dish search, category tabs and prices for every dish. Built with React and Vite. Live: https://classy-puffpuff-64065a.netlify.app Code: https://github.com/bhakti1404/RazzleQR
